@@ -29,10 +29,9 @@ connection.connect(function (err) {
     //});
 
 //}
-
 connection.connect();
 
-init();
+searchDB();
 
 function searchDB() {
     inquirer
