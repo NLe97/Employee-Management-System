@@ -1,7 +1,7 @@
-INSERT INTO department (name) VALUES ("General Management");
-INSERT INTO department (name) VALUES ("Human Resources");
-INSERT INTO department (name) VALUES ("Finance");
-INSERT INTO department (name) VALUES ("Sales");
+INSERT INTO department (department_name) VALUES ("General Management");
+INSERT INTO department (department_name) VALUES ("Human Resources");
+INSERT INTO department (department_name) VALUES ("Finance");
+INSERT INTO department (department_name) VALUES ("Sales");
 
 INSERT INTO role (title, salary, department_id) VALUES ("Manager", 5000000, 1);
 INSERT INTO role (title, salary, department_id) VALUES ("Office Coordinator", 60000, 2);
