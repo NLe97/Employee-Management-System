@@ -145,12 +145,12 @@ function addRole() {
             },
             {
                 type: "list",
-                name: "department_id",
+                name: "department",
                 message: "What department would you like to add this to?",
                 choices: departmentList
             }
-        ]).then((res) => {
-            connection.query(`INSERT INTO role (title, salary, department_id) VALUES ("${res.title}")`, `(${res.salary})`, `(${res.department_id}`, (err, res) => {
+        ]).then((department) => {
+            connection.query(`INSERT INTO role(title, salary, department_id) VALUES ("${res.title}", "(${res.salary})", "(${res.department}" )`, (err, res) => {
                 if (err) throw err;
                 searchDB();
             })
