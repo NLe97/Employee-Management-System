@@ -79,3 +79,59 @@ function searchDB() {
             }
         })
 }
+
+function viewAllDepartments() {
+    connection.query("SELECT * FROM department", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        searchDB();
+    })
+    
+}
+
+function viewAllEmployees() {
+    connection.query("SELECT * FROM employee", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        searchDB();
+    })
+    
+}
+
+function viewAllRoles() {
+    connection.query("SELECT * FROM role", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        searchDB();``
+    })
+    
+}
+
+function addDepartment() {
+    inquirer.prompt([{
+        name: "department",
+        type: "input",
+        message: "Add a New Department: "
+    }])
+        .then((res) => {
+            connection.query(`INSERT INTO department(department_name) VALUES ("${res.department}")`, (err, res) => {
+                if (err) throw err;
+                searchDB();
+            }
+        );
+    });
+}
+
+
+//function addRole() {
+//    inquirer.prompt([{
+//        name: "role",
+//        type: "input",
+//        message: "Add a New Role: "
+//    }])
+//        .then
+//}
+//
+//function addEmployee()
+
+
