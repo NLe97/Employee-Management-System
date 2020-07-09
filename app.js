@@ -123,15 +123,39 @@ function addDepartment() {
 }
 
 
-//function addRole() {
-//    inquirer.prompt([{
-//        name: "role",
-//        type: "input",
-//        message: "Add a New Role: "
-//    }])
-//        .then
-//}
-//
-//function addEmployee()
+function addRole() {
+    connection.query(`SELECT * FROM department`, (err, res) => {
+        if (err) throw err;
+        const departmentList = department.map(d => {
+            return {
+                name: d.department_name,
+                value: d.id
+            }
+        })
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "title",
+                message: "What is the title of this new role?"
+            },
+            {
+                type: "input",
+                name: "salary",
+                message: "What is the salary of this role?"
+            },
+            {
+                type: "list",
+                name: "department_id",
+                message: "What department would you like to add this to?",
+                choices: departmentList
+            }
+        ]).then((res) => {
+            connection.query(`INSERT INTO role (title, salary, department_id) VALUES ("${res.title}")`, `(${res.salary})`, `(${res.department_id}`, (err, res) => {
+                if (err) throw err;
+                searchDB();
+            })
+            console.log("Role has been added!");
+        })
 
 
+    })
