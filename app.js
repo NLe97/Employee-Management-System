@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const { inherits } = require("util");
-
+const logo = require("asciiart-logo");
 
 
 
@@ -79,6 +79,12 @@ function searchDB() {
             }
         })
 }
+
+function exitApp() {
+        console.log("Exiting Application!");
+        process.exit();
+}
+
 
 function viewAllDepartments() {
     connection.query("SELECT * FROM department", function (err, res) {
