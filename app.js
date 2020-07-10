@@ -128,7 +128,7 @@ function addDepartment() {
 
 
 function addRole() {
-    connection.query(`SELECT * FROM department`, (err, res) => {
+    connection.query(`SELECT * FROM department`, (err, department) => {
         if (err) throw err;
         const departmentList = department.map(d => {
             return {
@@ -153,15 +153,13 @@ function addRole() {
                 message: "What department would you like to add this to?",
                 choices: departmentList
             }
-        ]).then((department) => {
-            connection.query(`INSERT INTO role(title, salary, department_id) VALUES ("${res.title}", "(${res.salary})", "(${res.department}" )`, (err, res) => {
+        ]).then((res) => {
+            connection.query(`INSERT INTO role(title, salary, department_id) VALUES ("${res.title}","${res.salary}","${res.department}")`, (err, res) => {
                 if (err) throw err;
                 searchDB();
             })
             console.log("Role has been added!");
         })
-
-
     })
 }
 
