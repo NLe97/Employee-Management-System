@@ -1,7 +1,6 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const { inherits } = require("util");
-const logo = require("asciiart-logo");
+
 
 
 
