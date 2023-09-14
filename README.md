@@ -26,7 +26,7 @@ npm install console.table --save
 
 ## Instruction
 ```
-Use console command [node index.js] to run application in terminal.
+Use console command [node app.js] to run application in terminal.
 ```
 ## Feature
 * View Employees
